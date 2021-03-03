@@ -1,17 +1,14 @@
-# react-app-template
+# zoom-demo
 
-**An ideal pre-configured create-react-app template for your next ReactJS Project.**
+### Instructions
+-   React-app code in packages/react which runs on default port 3000
+-   Node-app code in packages/nodejs which runs on default port 5000
 
-## Pre-configured Features
--   React-App-Rewired
--   Husky, Lint-Staged & Prettier
--   Alias Imports
--   React Router
--   Material UI & Icons
--   Tailwind Css Support
+# Issues
+-  Meeting still not loading, despite already starting on my phone
+-  #zmmtg-root  blacks out the whole screen intially. To fix that added appropriate css. Not sure if i should then disable the `display: none` css on loading the page. Same issue 
+   was present in v1.8.6 as well.
+-  Some console error while going to the meeting page.   
 
-## Important
 
-For development use `tailwind.css` file to add styles.
 
-While building app for production, comment/remove `import tailwind.css` line in `index.js` and uncomment `import index.css` line. Also uncomment the **Purge** option in `tailwind.config.js` will remove all unused styles to give you an optimized css file.
