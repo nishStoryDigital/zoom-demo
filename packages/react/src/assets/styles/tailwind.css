@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/*  Used this class initiallly, else it was showing completely black screen 
+    throughout the app */
+#zmmtg-root {
+    display: none;
+}
+
 @layer components {
     /* w-max for width: fit-content */
     .root {

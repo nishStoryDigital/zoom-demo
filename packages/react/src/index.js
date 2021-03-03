@@ -1,14 +1,12 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import LoadingComp from '@Components/LoadingComp';
 import reportWebVitals from './reportWebVitals';
-// import '@Styles/index.css';
 import '@Styles/tailwind.css';
 
 const ReactApp = () => (
     <React.StrictMode>
-        <Suspense fallback={<LoadingComp />}>
+        <Suspense fallback="loading">
             <App />
         </Suspense>
     </React.StrictMode>
