@@ -10,10 +10,13 @@ const meetId = 5404214349;
     launchMeeting btn, still err 3008 -> Pls init meeting comes */
 const role = 0;
 
+const token =
+    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6InZhN241LUFuUjdTOUx3QXFNcXlKLUEiLCJleHAiOjE2MTQ5NzQyMzMsImlhdCI6MTYxNDk2ODgzM30.mB1PXNQLBA--29JLSdkiqeXyyUWqhgIvU3yY-URTj2E';
+
 const Page2 = () => {
     useEffect(() => {
-        // ZoomMtg.setZoomJSLib('node_modules/@zoomus/websdk/dist/lib', '/av');
-        ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.0/lib', '/av');
+        ZoomMtg.setZoomJSLib('node_modules/@zoomus/websdk/dist/lib', '/av');
+        // ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.0/lib', '/av');
         // ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.0/lib', '/av');
         ZoomMtg.preLoadWasm();
         ZoomMtg.prepareJssdk();
@@ -37,7 +40,7 @@ const Page2 = () => {
                     success: function (success) {
                         console.log(success);
                         ZoomMtg.join({
-                            signature: res.signature,
+                            signature: token,
                             apiKey: res.apiKey,
                             meetingNumber: meetId,
                             userName: 'test user',

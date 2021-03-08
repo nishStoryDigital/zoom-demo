@@ -4,8 +4,8 @@ const app = express();
 const crypto = require("crypto"); // crypto comes with Node.js
 
 /* Copied the JWT app creds of my account */
-const apiKey = "";
-const apiSecret = "";
+const apiKey = "va7n5-AnR7S9LwAqMqyJ-A";
+const apiSecret = "ppJx69AsKYeunQZI5G5e3Uja5jwDvZ98cAS7";
 
 app.use(cors());
 app.use(express.json());
