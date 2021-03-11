@@ -4,12 +4,12 @@ const app = express();
 const crypto = require("crypto"); // crypto comes with Node.js
 
 /* Copied the JWT app creds of my account */
-const apiKey = "va7n5-AnR7S9LwAqMqyJ-A";
-const apiSecret = "ppJx69AsKYeunQZI5G5e3Uja5jwDvZ98cAS7";
+const apiKey = ;
+const apiSecret = ;
 
 app.use(cors());
 app.use(express.json());
-app.listen(5000, () => console.log("server listening on port 5000"));
+app.listen(8000, () => console.log("server listening on port 5000"));
 
 app.get("/", (req, res) => {
     res.send("home route");

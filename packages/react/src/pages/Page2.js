@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { ZoomMtg } from '@zoomus/websdk';
 
+ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.0/lib', '/av');
+ZoomMtg.preLoadWasm();
+ZoomMtg.prepareJssdk();
+
 /*  disabled #zmmtg-root class in assets/styles/tailwind.css, 
     else it was showing completely black screen throughout the app */
 
@@ -15,15 +19,12 @@ const token =
 
 const Page2 = () => {
     useEffect(() => {
-        ZoomMtg.setZoomJSLib('node_modules/@zoomus/websdk/dist/lib', '/av');
+        //ZoomMtg.setZoomJSLib('node_modules/@zoomus/websdk/dist/lib', '/av');
         // ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.0/lib', '/av');
-        // ZoomMtg.setZoomJSLib('https://source.zoom.us/1.9.0/lib', '/av');
-        ZoomMtg.preLoadWasm();
-        ZoomMtg.prepareJssdk();
     }, []);
 
     const launchMeeting = () => {
-        fetch('http://localhost:5000/zoom', {
+        fetch('http://localhost:8000/zoom', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -33,6 +34,7 @@ const Page2 = () => {
         })
             .then((res) => res.json())
             .then((res) => {
+                console.log(res.signature);
                 document.getElementById('zmmtg-root').style.display = 'block';
                 ZoomMtg.init({
                     leaveUrl: 'http://localhost:3000/page2',
@@ -40,7 +42,7 @@ const Page2 = () => {
                     success: function (success) {
                         console.log(success);
                         ZoomMtg.join({
-                            signature: token,
+                            signature: res.signature,
                             apiKey: res.apiKey,
                             meetingNumber: meetId,
                             userName: 'test user',
@@ -65,19 +67,17 @@ const Page2 = () => {
                 join zoom meeting
             </button>
 
-            <div className="ReactModal__Body--open">
-                {/* added on import */}
+            {/* <div className="ReactModal__Body--open">
                 <div id="zmmtg-root"></div>
                 <div id="aria-notify-area"></div>
 
-                {/* added on meeting init */}
                 <div className="ReactModalPortal"></div>
                 <div className="ReactModalPortal"></div>
                 <div className="ReactModalPortal"></div>
                 <div className="ReactModalPortal"></div>
                 <div className="global-pop-up-box"></div>
                 <div className="sharer-controlbar-container sharer-controlbar-container--hidden"></div>
-            </div>
+            </div> */}
         </div>
     );
 };
