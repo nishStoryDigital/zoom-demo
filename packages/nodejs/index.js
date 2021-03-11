@@ -4,8 +4,8 @@ const app = express();
 const crypto = require("crypto"); // crypto comes with Node.js
 
 /* Copied the JWT app creds of my account */
-const apiKey = ;
-const apiSecret = ;
+const apiKey = process.env.ZOOM_API_KEY;
+const apiSecret = process.env.ZOOM_API_SECRET;
 
 app.use(cors());
 app.use(express.json());

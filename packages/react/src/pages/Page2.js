@@ -9,13 +9,9 @@ ZoomMtg.prepareJssdk();
     else it was showing completely black screen throughout the app */
 
 /* Do i need to enclose meetId in quotes ?? */
-const meetId = 5404214349;
-/*  I'm using my PMI and starting the meeting from phone, then hitting the 
-    launchMeeting btn, still err 3008 -> Pls init meeting comes */
+const meetId = 1234;
+/*  I'm using my PMI and starting the meeting from phone to test it out*/
 const role = 0;
-
-const token =
-    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6InZhN241LUFuUjdTOUx3QXFNcXlKLUEiLCJleHAiOjE2MTQ5NzQyMzMsImlhdCI6MTYxNDk2ODgzM30.mB1PXNQLBA--29JLSdkiqeXyyUWqhgIvU3yY-URTj2E';
 
 const Page2 = () => {
     useEffect(() => {
@@ -46,8 +42,6 @@ const Page2 = () => {
                             apiKey: res.apiKey,
                             meetingNumber: meetId,
                             userName: 'test user',
-                            passWord:
-                                'PTg0h0' /* Does joining PM require pswd ? */,
                             success: (success) => {
                                 console.log(success);
                             },
@@ -66,18 +60,6 @@ const Page2 = () => {
             <button className="link" onClick={() => launchMeeting()}>
                 join zoom meeting
             </button>
-
-            {/* <div className="ReactModal__Body--open">
-                <div id="zmmtg-root"></div>
-                <div id="aria-notify-area"></div>
-
-                <div className="ReactModalPortal"></div>
-                <div className="ReactModalPortal"></div>
-                <div className="ReactModalPortal"></div>
-                <div className="ReactModalPortal"></div>
-                <div className="global-pop-up-box"></div>
-                <div className="sharer-controlbar-container sharer-controlbar-container--hidden"></div>
-            </div> */}
         </div>
     );
 };
